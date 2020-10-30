@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Turret Road', Arial, cursive;
+  font-weight: bold;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body .crypt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  align-content: center;
+  background-color: rgb(42, 42, 42);
+}
+
+.navbutton {
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  font-size: x-large;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbutton:hover {
+  color: green;
+}
+
+header {
+  display: flex;
+  justify-self: center;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.container {
+  max-width: 900px;
+  align-content: center;
+}
+
+#home-container {
+
+}
+
+.header-button {
+display: flex;
+}
+
+.header-button h5 {
+  margin-top: 5px;
+  padding-right: 3px;
+}
+
+.header-button {
+  display: flex;
+  justify-content: center;
+}
+
+.header-button button {
+  margin-right: 2px;
+  height: 25px;
+  color: green;
+  border: 1px solid green;
+  background: none;
+  border-radius: 7%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.header-button button:hover {
+  color: gold;
+  border: 1px solid gold;
+}
+
+.results-button button {
+  font-size: 8px;
+  margin-right: 2px;
+  height: 15px;
+  color: black;
+  border: 1px solid black;
+  background: lightgray;
+  border-radius: 7%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.results-button h5 {
+  margin-top: 0px;
+}
+
+.tracker {
+  display: flex;
+  justify-content: center;
+}
+
+.coin-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 80px;
+  width: 900px;
+  border-bottom: 2px dotted green;
+}
+
+.coin {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  min-width: 300px;
+}
+
+.coin h1 {
+  font-size: 16px;
+  width: 150px;
+}
+
+.coin img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.coin-details {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.coin-price {
+  width: 110px;
+}
+
+.volume {
+  width: 200px;
+}
+
+.market-cap {
+  width: 240px;
+}
+
+.price-change {
+  width: 80px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.forexbody{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  background-color: rgba(0, 103, 0, 0.709);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 80px;
+  align-items: center;
+  height: 400px;
+  color: rgb(164, 164, 164);
+  background-image: url('https://i.imgur.com/orEglRE.jpg');
+}
+
+.forexinput{
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+.cryptobody{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  background-color: rgba(0, 103, 0, 0.709);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 80px;
+  align-items: center;
+  height: 400px;
+  color: rgb(164, 164, 164);
+}
+
+.cryptoinput{
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.crypto-background {
+  background-image: url('https://i.imgur.com/orEglRE.jpg');
+  height: 650px;
+  background-size: cover;
+}
