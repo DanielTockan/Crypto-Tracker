@@ -92,6 +92,8 @@ Pagination achieved by embedding number of results per page, clicking on button 
 
 Links added to each row leading to individual coin page
 
+Used turnary to show +ve price change as green and -ve as red
+
 
 
 #### Indvidual Coin Page
