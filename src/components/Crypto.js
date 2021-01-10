@@ -12,7 +12,16 @@ const initialState = [
   'LTC',
   'DOT',
   'BSV',
-  'NEO'
+  'NEO',
+  'GBP',
+  'USD',
+  'EUR',
+  'JPY',
+  'AUD',
+  'CAD',
+  'CHF',
+  'CNH'
+
 ]
 
 const initialState2 = [
@@ -31,7 +40,7 @@ const Crypto = () => {
   const [currencies, updateCurrencies] = useState(initialState2)
   const [baseCurrency, updateBaseCurrency] = useState('')
   const [exchangeRate, updateExchangeRate] = useState('')
-  const [amount, UpdateAmount] = useState('How much would you like to exchnage?')
+  const [amount, updateAmount] = useState('')
 
   const fetch = (currency2) => {
     updateExchangeRate("Loading ...")
@@ -45,6 +54,11 @@ const Crypto = () => {
     <body className="crypt">
       <div className="cryptobody">
         <h1>Cryptocurrency converter</h1>
+        <input className="forexinput"
+          placeholder='Enter amount here:'
+          onChange={(event) => updateAmount(event.target.value)}
+        >
+        </input>
         <select
           className="cryptoinput"
           onChange={(event) => updateBaseCurrency(event.target.value)}
@@ -66,7 +80,9 @@ const Crypto = () => {
           })}
         </select>
         <div> Exchange rate is: {exchangeRate}</div>
-        <div></div>
+        <div>
+          <div> Amount in {baseCurrency} is: {exchangeRate === 'Loading ...' ? 'Loading ...' : exchangeRate * amount}</div>
+        </div>
       </div>
     </body>
 

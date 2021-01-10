@@ -69,13 +69,3 @@ const Forex = () => {
   </div>
 }
 export default Forex
-
-
-
-
-
-
-
-
-
-
