@@ -1,12 +1,12 @@
-# Crypto-Index (SEI Project 2)
+# Crypto-Tracker (SEI Project 2)
 
 ## Project Overview
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
 
-An objective of mine when deciding the concept was to build the type of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market index. It's not as complicated as it sounds, I promise! <br>
+An objective of mine when deciding the concept was to build the type of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market tracker. It's not as complicated as it sounds, I promise! <br>
 
-### Take a look [here.](https://danieltockan.github.io/Crypto-Index/)
+### Take a look [here.](https://danieltockan.github.io/Crypto-Tracker/)
 
 This solo-project provided me with an opportunity to improve on the React skills I had developed the weeks prior, and work with my first external library (Plotly) to plot time-series data.
 
@@ -106,7 +106,7 @@ The majority of effort spent on this project was in the implemention of my stret
 
 ### Build:
 
-#### Coin Index
+#### Coin Tracker
 
 Crypto-Index render onto page using map function
 

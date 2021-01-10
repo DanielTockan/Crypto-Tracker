@@ -15,11 +15,11 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/crypto-index/Crypto" component={Crypto} />
-      <Route exact path="/crypto-index/CryptoTracker" component={CryptoTracker} />
-      <Route exact path="/crypto-index/Forex" component={Forex} />
-      <Route exact path="/crypto-index/Login" component={Login} />      
-      <Route exact path="/crypto-index" component={Home} />
+      <Route exact path="/crypto-tracker/Crypto" component={Crypto} />
+      <Route exact path="/crypto-tracker/CryptoTracker" component={CryptoTracker} />
+      <Route exact path="/crypto-tracker/Forex" component={Forex} />
+      <Route exact path="/crypto-tracker/Login" component={Login} />      
+      <Route exact path="/crypto-tracker" component={Home} />
     </Switch>
   </BrowserRouter>
 }
