@@ -60,7 +60,7 @@ Intent on building an app centred around finance, I conducted a search of API's 
 
 Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria providing, a comprehensive list of endpoints returing data for live pricing, trading volume, historical data etc. for thousands of coins. I was satisfied that I had enough data to build out an MVP with.
 
-- Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies
+<!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
 
 ![Insomnia](./screenshots/get_crypto.png)
 
@@ -70,7 +70,7 @@ The short time-frame meant that strict planning was necessary to get an MVP buil
 
 Day 1 (in order)
 
--  Conduct some research on the API's I was going to use
+- Conduct some research on the API's I was going to use
 - Determine how I would fetch the relevent data I needed from them
 - Determine my MVP
 - Determine stretch goals
