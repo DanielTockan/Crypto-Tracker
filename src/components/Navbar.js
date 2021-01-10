@@ -7,7 +7,7 @@ const Navbar = () => {
 
       <Link className="navbutton" to="/crypto-tracker">Home</Link>
       <Link className="navbutton" to="/crypto-tracker/all">Market Tracker</Link>
-      <Link className="navbutton" to="/crypto-tracker/crypto">Exchange</Link>
+      <Link className="navbutton" to="/crypto-tracker/exchange">Exchange</Link>
       
     </div>
   </nav>
