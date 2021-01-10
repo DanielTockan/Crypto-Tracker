@@ -18,6 +18,17 @@ body .crypt {
   align-items: center;
 }
 
+section {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-around;
@@ -224,3 +235,107 @@ display: flex;
   height: 650px;
   background-size: cover;
 }
+.remove-hyperlink {
+  color: black;
+  text-decoration: none;
+}
+
+// Individual coin pages
+
+.param-bar {
+  display: flex;
+}
+
+.coin-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.cryptoinput2 {
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding: 2px;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.side-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 20px;
+  flex: 1;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+
+.main-section-head {
+  display: flex;
+  justify-items: space-between;
+}
+
+.dropdown {
+  display: flex;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  min-width:  100%;
+  height: 60%;
+  transition: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%btn-styles {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 60%;
+  background: none;
+  border: none;
+}
+
+#goLeft {
+  left: 0;
+  @extend %btn-styles;;
+}
+
+#goRight {
+  right: 0;
+  @extend %btn-styles;
+}
+
+.home-symbol {
+  width: 400px;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-coin {
+  font-size: 200px;
+}
+  
