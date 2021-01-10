@@ -4,9 +4,13 @@
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
 
-An objective of mine when deciding the concept was to build the kind of app that I felt is used in in real-life (in a business context). I also wanted to tailor the app to my personal interests, and eventually deciding to build a cryptocurrency market index.
+An objective of mine when deciding the concept was to build the kind of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market index.
 
-It's not as complicated as it sounds, I promise! Have a look [here.](https://danieltockan.github.io/Crypto-Index/)
+It's not as complicated as it sounds, I promise! <br>
+
+This solo-project provided me with an opportunity to improve on the React skills I had developed the weeks prior and work with my first external library (Plotly)
+
+### Take a look [here.](https://danieltockan.github.io/Crypto-Index/)
 
 
 ### Table of Contents
