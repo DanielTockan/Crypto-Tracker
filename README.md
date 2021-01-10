@@ -96,17 +96,13 @@ Detials on how this was achieved is given in [Build](#Build).
 
 **Stretch goals**
 
-One stretch goal was to add pagination
+The majority of effort spent on this project was in the implemention of my stretch goals. In no particular order, these were to:
 
-One stretch goal was to toggle prices and data in different currencies
-
-One stretch goal was to add a currency working exchange converter
-
-One stretch goal was to add a single coin page
-
-One stretch goal was to access deeply nested data from API
-
-One stretch goal was to build time series chart of historical data
+- Incorporate pagination, allowing client-side to select the number of results returned
+- Add buttons to toggle the currency that numerical data was displayed in
+- Create an additional page, for currency exchange (crypto and fiat)
+- Create an individual coin page providing details on each currency - required me to fetch deeply nested data
+- Create a chart displaying time series data of historical prices (in individual coin page)
 
 ### Build:
 
