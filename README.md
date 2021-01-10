@@ -110,13 +110,36 @@ Each section/page of the app was stored within its own component:
 
 - Home.js (MVP)
 - Navbar.js (MVP)
+- CryptoTracker.js (MVP)
 - CurrencyConverter.js (Stretch)
-- CryptoTracker.js (Stretch)
 - Coin.js (Stretch)
 
 And then imported to the App.js file, like so:
 
+```js
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+import CryptoTracker from './components/CryptoTracker'
+import CurrencyConverter from './components/CurrencyConverter'
+import Coin from './components/Coin'
+```
 
+React Router was used to navigate between the components.
+
+```js
+const App = () => {
+  return <BrowserRouter>
+    <Navbar />
+    <Switch>
+      <Route exact path="/crypto-tracker/CryptoTracker" component={CryptoTracker} />
+      <Route exact path="/crypto-tracker/Forex" component={CurrencyConverter} />    
+      <Route exact path="/crypto-tracker" component={Home} />
+    </Switch>
+  </BrowserRouter>
+}
+
+export default App 
+```
 
 
 #### Coin Tracker
