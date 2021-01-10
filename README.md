@@ -4,13 +4,13 @@
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
 
-An objective of mine when deciding the concept was to build the kind of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market index.
-
-It's not as complicated as it sounds, I promise! <br>
-
-This solo-project provided me with an opportunity to improve on the React skills I had developed the weeks prior and work with my first external library (Plotly)
+An objective of mine when deciding the concept was to build the type of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market index. It's not as complicated as it sounds, I promise! <br>
 
 ### Take a look [here.](https://danieltockan.github.io/Crypto-Index/)
+
+This solo-project provided me with an opportunity to improve on the React skills I had developed the weeks prior, and work with my first external library (Plotly) to plot time-series data.
+
+
 
 
 ### Table of Contents
@@ -19,8 +19,8 @@ This solo-project provided me with an opportunity to improve on the React skills
 2. [The Brief](#The-Brief)
 3. [Technologies Used](#Technologies-Used)
 4. [The Approach](#The-Approach)
+    - [The API's](#API's-Used)
     - [Planning](#Planning)
-    - [API's Used](#API's-Used)
     - [React](#React)
 5. [Triumphs](#Triumphs)
 6. [Obstacles Faced and Lessons](#Obstacles-Faced-and-Lessons)
@@ -29,7 +29,7 @@ This solo-project provided me with an opportunity to improve on the React skills
 ## The Brief
 
 - Consume a public API.
-- Have several components - Classical or functional.
+- Have several components/
 - The app should include a router - with several "pages".
 - Include wireframes.
 - Have semantically clean HTML.
@@ -50,19 +50,23 @@ This solo-project provided me with an opportunity to improve on the React skills
 
 ## The Approach
 
-- Wanted an app based around finance/investing with constantly updating live data feeds
+### The API's
 
-- Coingecko selected due to easy to use API, with a lot od end points and did not require a key
+Intent on building an app centred around finance, I conducted a search of API's I could potentially use. The following criteria were considered in my selection process:
+- Is it free to use?
+- Do I require an API key/is there a call limit?
+- Quality of documentation
+- Quality of the endpoints returned
+
+Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria providing, a comprehensive list of endpoints returing data for live pricing, trading volume, historical data etc. for thousands of coins. I was satisfied that I had enough data to build out an MVP with.
 
 - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies
 
 ![Insomnia](./screenshots/get_crypto.png)
 
-- Was satisfied that there was enough data to build an app with, as hundereds of coins with roguhly 30 fields each were returned
-
 ### Planning:
 
-The short time-frame meant that strict planning was necessary to get an MVP built in time for Demos
+The short time-frame meant that strict planning was necessary to get an MVP built in time for my Demo.
 
 Day 1 (in order)
 
