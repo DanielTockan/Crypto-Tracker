@@ -21,7 +21,7 @@ This solo-project provided me with an opportunity to improve on the React skills
 4. [The Approach](#The-Approach)
     - [The API's](#API's-Used)
     - [Planning](#Planning)
-    - [React](#React)
+    - [Build](#Build)
 5. [Triumphs](#Triumphs)
 6. [Obstacles Faced and Lessons](#Obstacles-Faced-and-Lessons)
 7. [Future Features](#Future-Features)
@@ -62,7 +62,7 @@ Following my research I decided to use [CoinGecko's API](https://www.coingecko.c
 
 <!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
 
-![Insomnia](./screenshots/crypto_endpoints.png)
+![CoinGecko endpoints](./screenshots/crypto_endpoints.png)
 
 I also came across the [Alpha Vantage API](https://www.alphavantage.co/documentation/) during the research phase of the project. This API was not cryptocurrency focused but provided a lot of useful financial data. Despite requiring an API key this was another great API that I decided to bookmark for any potential stretch goals.
 
@@ -82,11 +82,19 @@ Planning (in order)
 
 **Defining MVP**
 
-Defining an MVP was relatively simple given the wealth of information provided by the CoinGecko API. I used the endpoint coins/markets which returned an array of object. Each object returned several fields of data related to a specific coin:
+Defining an MVP was relatively simple given the wealth of information provided by the CoinGecko API. I used the endpoint "coins/markets", which returned an array of objects. Each object returned several fields of data related to a specific coin:
 
 ![Insomnia](./screenshots/get_crypto.png)
 
-Given the amount of numerical data relating to finance I decided my MVP would be a cryptocurrency stock index
+This information was perfect to make a crypto market tracker, ranking coins in terms of makret cap. All datapoints that I wanted would be displayed in a row, with each coin having its own row. <br>
+
+To illustrate:
+
+![MVP](./screenshots/crypto_mvp.png)
+
+Detials on how this was achieved is given in [Build](#Build).
+
+**Stretch goals**
 
 One stretch goal was to add pagination
 
@@ -100,7 +108,7 @@ One stretch goal was to access deeply nested data from API
 
 One stretch goal was to build time series chart of historical data
 
-### React:
+### Build:
 
 #### Coin Index
 
