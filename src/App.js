@@ -18,7 +18,6 @@ const App = () => {
       <Route exact path="/crypto-tracker/crypto" component={Crypto} />
       <Route exact path="/crypto-tracker/all" component={CryptoTracker} />
       <Route exact path="/crypto-tracker/:coinId" component={Coin} />
-      <Route exact path="/crypto-tracker/forex" component={Forex} />
       <Route exact path="/crypto-tracker" component={Home} />
     </Switch>
   </BrowserRouter>
