@@ -8,10 +8,7 @@ const Navbar = () => {
       <Link className="navbutton" to="/crypto-tracker">Home</Link>
       <Link className="navbutton" to="/crypto-tracker/all">Market Tracker</Link>
       <Link className="navbutton" to="/crypto-tracker/crypto">Exchange</Link>
-      {/* 
-      <Link className="navbutton" to="/project-2/Login">Login</Link>
-      <Link className="navbutton" to="/project-2/Login">Sign up</Link>
-      */}
+      
     </div>
   </nav>
 }

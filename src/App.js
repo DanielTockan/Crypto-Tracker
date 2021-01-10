@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Home from './components/Home'
-import Forex from './components/Forex'
 import Crypto from './components/Crypto'
 import CryptoTracker from './components/CryptoTracker'
 import Navbar from './components/Navbar'
