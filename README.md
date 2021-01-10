@@ -106,13 +106,18 @@ The majority of effort spent on this project was in the implemention of my stret
 
 ### Build:
 
-Each section/page of the app was stored within its own component, that was then imported to the App.js file.
+Each section/page of the app was stored within its own component: 
 
-The components create were:
 - Home.js (MVP)
+- Navbar.js (MVP)
 - CurrencyConverter.js (Stretch)
 - CryptoTracker.js (Stretch)
 - Coin.js (Stretch)
+
+And then imported to the App.js file, like so:
+
+
+
 
 #### Coin Tracker
 
