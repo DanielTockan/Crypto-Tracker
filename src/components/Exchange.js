@@ -35,7 +35,7 @@ const initialState2 = [
   'CNH'
 ]
 
-const Crypto = () => {
+const Exchange = () => {
   const [cryptoCurrencies, updateCryptoCurrencies] = useState(initialState)
   const [currencies, updateCurrencies] = useState(initialState2)
   const [baseCurrency, updateBaseCurrency] = useState('')
@@ -89,4 +89,4 @@ const Crypto = () => {
   </div>
 }
 
-export default Crypto
+export default Exchange
