@@ -131,14 +131,15 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/crypto-tracker/CryptoTracker" component={CryptoTracker} />
-      <Route exact path="/crypto-tracker/Forex" component={CurrencyConverter} />    
-      <Route exact path="/crypto-tracker" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/Tracker" component={CryptoIndex} />
+      <Route exact path="/Tracker/:coinId" component={Coin} />
+      <Route exact path="/Exchange" component={CurrencyConverter} />
     </Switch>
   </BrowserRouter>
 }
 
-export default App 
+export default App
 ```
 
 
