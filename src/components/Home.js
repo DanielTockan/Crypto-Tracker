@@ -40,12 +40,12 @@ const Home = () => {
           className="slide">
           <Link
             className="remove-hyperlink"
-            to={`/Index/${crypto.id}`}>
+            to={`/crypto-tracker/${crypto.id}`}>
             <img className="home-symbol" src={crypto.image} alt={crypto.id} />
           </Link>
           <Link
             className="remove-hyperlink"
-            to={`/Index/${crypto.id}`}>
+            to={`/crypto-tracker/${crypto.id}`}>
             <div><h1 className="h-coin" >{crypto.id}</h1></div>
           </Link>
         </div>
