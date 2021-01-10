@@ -3,51 +3,52 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const Home = () => {
-  
-  const [crypto, updateCrypto] = useState([])
-  const [baseCurrency, updateBaseCurrency] = useState('GBP')
-  const [resultsPerPage, updateResultsPerPage] = useState('100')
 
+  const [crypto, updateCrypto] = useState([])
 
   useEffect(() => {
     axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=GBP&order=market_cap_desc&per_page=5&page=1&sparkline=false`)
       .then(resp => {
         const data = resp.data
         updateCrypto(data)
-        //console.log(data[0])
       })
-  }, [baseCurrency, resultsPerPage])
+  }, [])
 
-  console.log(baseCurrency)
-  console.log(resultsPerPage)
+  console.log(crypto.image)
+
+  const goLeft = () => {
+    x === 0 ? updateX(-100 * (crypto.length - 1)) : updateX(x + 100)
+  }
+
+  const goRight = () => {
+    x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
+  }
+
+  const [x, updateX] = useState(0)
+
 
   return <div>
-    <body id="home-crypt" className="crypt">
-      <div id="home-container" className="container">
-        {crypto.map((crypto, index) => {
-          return <div id="home-" className="tracker" key={index}>
-            <div id="home-coin-row" className="coin-row">
-              <div className="coin">
-                <img src={crypto.image} alt="" id="home-symbol" className="symbol" />
-                <h1 id="home-coin-name" className="coin-name">{crypto.name}</h1>
-                <p id="home-ticker" className="ticker">{crypto.symbol.toUpperCase()}</p>
-              </div>
-              <div id="home-coin-details" className="coin-details">
-                <p id="home-coin-price" className="coin-price">£{crypto.current_price.toLocaleString()}</p>
-                <p id="home-volume" className="volume">£{crypto.total_volume.toLocaleString()}</p>
-                {crypto.price_change_percentage_24h < 0 ? (
-                  <p id="home-price-change" className="price-change red">{crypto.price_change_percentage_24h.toFixed(2)}%</p>
-                ) :
-                  (<p id="home-price change" className="price-change green">{crypto.price_change_percentage_24h}%</p>)}
-                <p id="home-market-cap" className="market-cap">Mkt Cap: £{crypto.market_cap.toLocaleString()}</p>
-              </div>
-            </div>
-          </div>
-        
+    <div className="slider">
+      {crypto.map((crypto, index) => {
+        return <div
+          style={{ transform: `translateX(${x}%)` }}
+          key={index}
+          className="slide">
+          <Link
+            className="remove-hyperlink"
+            to={`/Index/${crypto.id}`}>
+            <img className="home-symbol" src={crypto.image} alt={crypto.id} />
+          </Link>
+          <Link
+            className="remove-hyperlink"
+            to={`/Index/${crypto.id}`}>
+            <div><h1 className="h-coin" >{crypto.id}</h1></div>
+          </Link>
+        </div>
       })}
-      </div>
-    </body>
-
+      <button id="goLeft" onClick={goLeft} >left</button>
+      <button id="goRight" onClick={goRight} >right</button>
+    </div>
   </div>
 }
 
