@@ -29,7 +29,7 @@ const Home = () => {
 
   return <div>
     <h1>For a look for the whole market tracker, click <a href="https://danieltockan.github.io/crypto-tracker/all">here</a></h1>
-    <h1>Today's top 5 coins.</h1>
+    <h1>Today's top 5 coins</h1>
 
     <div className="slider">
       {crypto.map((crypto, index) => {
