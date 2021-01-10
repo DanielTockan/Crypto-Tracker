@@ -6,6 +6,7 @@ import Forex from './components/Forex'
 import Crypto from './components/Crypto'
 import CryptoTracker from './components/CryptoTracker'
 import Navbar from './components/Navbar'
+import Coin from './components/Coin'
 
 import './styles/style.scss'
 
@@ -16,6 +17,7 @@ const App = () => {
     <Switch>
       <Route exact path="/crypto-tracker/crypto" component={Crypto} />
       <Route exact path="/crypto-tracker/all" component={CryptoTracker} />
+      <Route exact path="/crypto-tracker/:coinId" component={Coin} />
       <Route exact path="/crypto-tracker/forex" component={Forex} />
       <Route exact path="/crypto-tracker" component={Home} />
     </Switch>
