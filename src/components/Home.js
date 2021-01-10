@@ -30,7 +30,7 @@ const Home = () => {
     <h3>For a look at today's whole market data, click
     <Link className="remove-hyperlink2" to={`/crypto-tracker/all`}> here.</Link>
     </h3>
-    <h1>Today's top 5 coins</h1>
+    <h1 className="centre" >Today's top 5 coins</h1>
 
     <div className="slider">
       {crypto.map((crypto, index) => {
