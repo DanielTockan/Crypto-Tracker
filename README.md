@@ -2,7 +2,12 @@
 
 ## Project Overview
 
-This was a hackathon themed project, lasting 3 days with the objective of building a frontend React application that consumed a public Rest API. I had 48-hours to complete the app.
+This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
+
+An objective of mine when deciding the concept was to build the kind of app that I felt is used in in real-life (in a business context). I also wanted to tailor the app to my personal interests, and eventually deciding to build a cryptocurrency market index.
+
+It's not as complicated as it sounds, I promise! Have a look [here.](https://danieltockan.github.io/Crypto-Index/)
+
 
 ### Table of Contents
 
