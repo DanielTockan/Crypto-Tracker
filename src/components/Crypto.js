@@ -51,7 +51,7 @@ const Crypto = () => {
         >
           <option className="option">Base currency...</option>
           {cryptoCurrencies.map((currency, index) => {
-            return <option classname="option" key={index} value={currency}>{currency}</option>
+            return <option className="option" key={index} value={currency}>{currency}</option>
           })}
         </select>
         <select
