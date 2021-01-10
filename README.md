@@ -58,24 +58,33 @@ Intent on building an app centred around finance, I conducted a search of API's 
 - Quality of documentation
 - Quality of the endpoints returned
 
-Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria providing, a comprehensive list of endpoints returing data for live pricing, trading volume, historical data etc. for thousands of coins. I was satisfied that I had enough data to build out an MVP with.
+Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returing data for live pricing, trading volume, historical data etc. for thousands of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
 
 <!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
 
-![Insomnia](./screenshots/get_crypto.png)
+![Insomnia](./screenshots/crypto_endpoints.png)
 
-### Planning:
+I also came across the [Alpha Vantage API](https://www.alphavantage.co/documentation/) during the research phase of the project. This API was not cryptocurrency focused but provided a lot of useful financial data. Despite requiring an API key this was another great API that I decided to bookmark for any potential stretch goals.
+
+### Day 1:
 
 The short time-frame meant that strict planning was necessary to get an MVP built in time for my Demo.
 
-Day 1 (in order)
+Planning (in order)
 
-- Conduct some research on the API's I was going to use
-- Determine how I would fetch the relevent data I needed from them
-- Determine my MVP
-- Determine stretch goals
-- Build out the MVP components
-- Style MVP components
+- Research API's (see above).
+- Define and plan MVP.
+- Define stretch goals.
+- Determine how I would fetch the relevent data to buiild my MVP.
+- Build out MVP components.
+- Style MVP components.
+- Debugging and implementation of stretch goals.
+
+**Defining MVP**
+
+Defining an MVP was relatively simple given the wealth of information provided by the CoinGecko API. I used the endpoint coins/markets which returned an array of object. Each object returned several fields of data related to a specific coin:
+
+![Insomnia](./screenshots/get_crypto.png)
 
 Given the amount of numerical data relating to finance I decided my MVP would be a cryptocurrency stock index
 
