@@ -232,9 +232,10 @@ display: flex;
 }
 
 .crypto-background {
-  background-image: url('https://i.imgur.com/orEglRE.jpg');
-  height: 650px;
+  // background-image: url('https://i.imgur.com/orEglRE.jpg');
+  height: 100vh;
   background-size: cover;
+  background-color: black;
 }
 .remove-hyperlink {
   color: black;
@@ -330,14 +331,15 @@ display: flex;
 }
 
 .home-symbol {
-  width: 400px;
+  max-width: 200px;
+  max-height: 200vh;
   justify-items: center;
   justify-content: center;
   align-items: center;
 }
 
 .h-coin {
-  font-size: 200px;
+  font-size: 150px;
 }
 
 .remove-hyperlink2 {
