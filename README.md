@@ -1,4 +1,4 @@
-# Crypto-Tracker (SEI Project 2) : 📈
+# Crypto-Tracker 📈 (SEI Project 2) :
 
 ## Project Overview
 
