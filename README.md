@@ -1,4 +1,4 @@
-# Crypto-Tracker (SEI Project 2)
+# Crypto-Tracker (SEI Project 2) :chart_with_upwards_trend
 
 ## Project Overview
 
