@@ -14,8 +14,6 @@ const Home = () => {
       })
   }, [])
 
-  console.log(crypto.image)
-
   const goLeft = () => {
     x === 0 ? updateX(-100 * (crypto.length - 1)) : updateX(x + 100)
   }
