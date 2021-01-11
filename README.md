@@ -165,7 +165,7 @@ Graph created from plotly lbrary charted using time series data of past 30 day p
 
 More details on each coin, including bio section added
 
-Accesed deeply nester data using indexing
+Accesed deeply nester data using destructuring
 
 #### Currency Converter
 
