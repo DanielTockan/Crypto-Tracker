@@ -27,9 +27,6 @@ const Home = () => {
   const [x, updateX] = useState(0)
 
   return <div>
-    <h3>For a look at current data for the whole market, click
-    <Link className="remove-hyperlink2" to={`/crypto-tracker/all`}> here.</Link>
-    </h3>
     <h1 className="centre" >Today's top 5 coins</h1>
 
     <div className="slider">
