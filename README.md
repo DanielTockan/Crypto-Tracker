@@ -1,5 +1,7 @@
 # Crypto-Tracker 📈 (SEI Project 2) :
 
+![Home](./screenshots/home.png)
+
 ## Project Overview
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
@@ -72,13 +74,13 @@ The short time-frame meant that strict planning was necessary to get an MVP buil
 
 Planning (in order):
 
-- Research API's (see above).
-- Define and plan MVP.
-- Define stretch goals.
-- Determine how I would fetch the relevent data to buiild my MVP.
-- Build out MVP components.
-- Style MVP components.
-- Debugging and implementation of stretch goals.
+- Research API's (see above)
+- Define and plan MVP
+- Define stretch goals
+- Determine how I would fetch the relevent data to buiild my MVP
+- Build out MVP components
+- Style MVP components
+- Debugging and implementation of stretch goals
 
 **Defining MVP**
 
@@ -98,11 +100,11 @@ Detials on how this was achieved is given in [Build](#Build).
 
 The majority of effort spent on this project was in the implemention of my stretch goals. In no particular order, these were to:
 
-- Incorporate pagination, allowing client-side to select the number of results returned.
-- Add buttons to toggle the currency that numerical data was displayed in.
-- Create an additional page, for currency exchange (crypto and fiat).
-- Create an individual coin page providing details on each currency - required me to fetch deeply nested data.
-- Create a chart displaying time series data of historical prices (in individual coin page).
+- Incorporate pagination, allowing client-side to select the number of results returned
+- Add buttons to toggle the currency that numerical data was displayed in
+- Create an additional page, for currency exchange (crypto and fiat)
+- Create an individual coin page providing details on each currency - required me to fetch deeply nested data
+- Create a chart displaying time series data of historical prices (in individual coin page)
 
 ### Build:
 
@@ -145,15 +147,80 @@ export default App
 
 #### Coin Tracker
 
-Crypto-Index render onto page using map function
+![Tracker](./screenshots/tracker.png)
 
-Created a row of data fields I wanted
+The crypto tracker was rendered onto page using map function. The data fioelds that I wanted to display were put in and styled.
 
-Use State and use effects and axios to fetch the data
+```js
+{crypto.map((crypto, index) => {
+          return <div className="tracker" key={index}>
+            <Link
+              className="remove-hyperlink"
+              to={`/crypto-tracker/${crypto.id}`}>
+              <div className="coin-row">
+                <div className="coin">
+                  <img src={crypto.image} alt="" className="symbol" />
+                  <h1 className="coin-name">{crypto.name}</h1>
+                  <p className="ticker">{crypto.symbol.toUpperCase()}</p>
+                </div>
+                <div className="coin-details">
+                  <p className="coin-price">Price per coin: {crypto.current_price.toLocaleString()}</p>
+                  <p className="volume">Volume traded/24h  {crypto.total_volume.toLocaleString()}</p>
+                  {crypto.price_change_percentage_24h < 0 ? (
+                    <p className="price-change red">{crypto.price_change_percentage_24h.toFixed(2)}%</p>
+                  ) :
+                    (<p className="price-change green">{crypto.price_change_percentage_24h}%</p>)}
+                  <p className="market-cap">Mkt Cap: {crypto.market_cap.toLocaleString()}</p>
+                </div>
+              </div>
+            </Link>
+          </div>
 
-Pagination achieved by embedding number of results per page, clicking on button set this within fetch URL using state
+        })}
+```
 
-Links added to each row leading to individual coin page
+Each coin was an object within an array retunred from the API, and as a result had its own row.
+
+Use Effects (axios) were utilised to fetch the data from the API.
+
+```js
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${baseCurrency}&order=market_cap_desc&per_page=${resultsPerPage}&page=1&sparkline=false`)
+      .then(resp => {
+        const data = resp.data
+        updateCrypto(data)
+      })
+  }, [baseCurrency, resultsPerPage])
+  ```
+
+State was used to dynamically update the data rendered on the page.
+
+```js
+  const [crypto, updateCrypto] = useState([])
+  const [baseCurrency, updateBaseCurrency] = useState('GBP')
+  const [resultsPerPage, updateResultsPerPage] = useState('100')
+  ```
+
+The use of state allowed me to make use of buttons to toggle the number of results shown on the page, and the currency in which prices were displayed in. The state was updated within the useEffect, and triggered a new fetch each time state was updated.
+
+An event listener was implemented within each button, updating the state everytime the corresponding button was clicked, like so:
+
+```js
+        <div className="header-button"
+          onClick={(event) => updateBaseCurrency(event.target.value)}>
+          <h5>Choose base currency:</h5>
+          <button value="GBP">GBP</button>
+          <button value="USD">USD</button>
+          <button value="EUR">EUR</button>
+          <button value="JPY">JPY</button>
+          <button value="CNY">CNY</button>
+          <button value="CAD">CAD</button>
+          <button value="AUD">AUD</button>
+        </div>
+```
+
+
+<!-- Links added to each row leading to individual coin page
 
 Used turnary to show +ve price change as green and -ve as red
 
@@ -173,18 +240,18 @@ Working currency converter added using alpha vantage API
 
 Created use state to update each currency and get the rate
 
-Created logic based function to get correct offer and quote prices
+Created logic based function to get correct offer and quote prices -->
 
 
 ## Triumphs
 
-Successfully created a time seriess plot using external plotly kivrary
+- Successfully created a time seriess plot using external plotly library.
+- The price data updated dynamically wuth the press of a button, similarly to how it does on poular websites.
 
-My home page looks like a legitate stock index
 
 ## Obstacles Faced and Lessons
 
-Getting the individual coin page to style the way I like. Next time will use a framewoerk like bootstrap
+- I experienced major bugs when trying to access deeply nested data. Having conducted extensive research, I was able to solve this problem on my won. This improved my debugging skills as well as my ability to use more complex API's.
 
 Accessing deeply nested info
 
