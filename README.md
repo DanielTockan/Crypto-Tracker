@@ -253,6 +253,6 @@ Created logic based function to get correct offer and quote prices -->
 
 - I experienced major bugs when trying to access deeply nested data. Having conducted extensive research, I was able to solve this problem on my won. This improved my debugging skills as well as my ability to use more complex API's.
 
-Accessing deeply nested info
-
 ## Future Features
+
+- I am currently working on a single coin page, that provides extensive details on each indivudal coin. It will be accessed by clicking on the coin within the coin tracker.
