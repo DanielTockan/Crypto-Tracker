@@ -52,12 +52,7 @@ const Exchange = () => {
   return <div className="crypto-background">
     <body className="crypt">
       <div className="cryptobody">
-        <h1>Cryptocurrency converter</h1>
-        <input className="forexinput"
-          placeholder='Enter amount here:'
-          onChange={(event) => updateAmount(event.target.value)}
-        >
-        </input>
+        <h1>Currency converter</h1>
         <select
           className="cryptoinput"
           onChange={(event) => updateBaseCurrency(event.target.value)}
@@ -67,6 +62,11 @@ const Exchange = () => {
             return <option className="option" key={index} value={currency}>{currency}</option>
           })}
         </select>
+        <input className="cryptoinput"
+          placeholder='Enter amount here:'
+          onChange={(event) => updateAmount(event.target.value)}
+        >
+        </input>
         <select
           className="cryptoinput"
           onChange={(event) =>
@@ -78,9 +78,9 @@ const Exchange = () => {
             return <option className="option" key={index} value={currency}>{currency}</option>
           })}
         </select>
-        <div> Exchange rate is: {exchangeRate}</div>
+        <div> Exchange rate is: {exchangeRate} </div>
         <div>
-          <div> Amount in {baseCurrency} is: {exchangeRate === 'Loading ...' ? 'Loading ...' : exchangeRate * amount}</div>
+          <div> The price is: {exchangeRate === 'Loading ...' ? 'Loading ...' : (exchangeRate * amount).toFixed(2)}</div>
         </div>
       </div>
     </body>
