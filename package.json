@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "bulma": "^0.9.1",
     "plotly": "^1.0.6",
     "plotly.js": "^1.58.4",
     "react": "^16.13.1",
