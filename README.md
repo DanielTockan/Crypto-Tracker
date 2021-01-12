@@ -4,11 +4,11 @@
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
 
-An objective of mine when deciding the concept was to build the type of app that I felt is used in real-life. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market tracker. It's not as complicated as it sounds, I promise! <br>
+An objective of mine when deciding the concept was to build the type of app that I could see myself working on in industry. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market tracker. It's not as complicated as it sounds, I promise! <br>
 
 ### Take a look [here.](https://danieltockan.github.io/Crypto-Tracker/)
 
-This solo-project provided me with an opportunity to improve on the React skills I had developed the weeks prior, and work with my first external library (Plotly) to plot time-series data.
+This solo-project provided me with an opportunity to improve on the React skills I had developed the week prior, and work with my first external library (Plotly) to plot time-series data.
 
 
 
@@ -29,8 +29,8 @@ This solo-project provided me with an opportunity to improve on the React skills
 ## The Brief
 
 - Consume a public API.
-- Have several components/
-- The app should include a router - with several "pages".
+- Have several components.
+- The app should include a router - with several pages.
 - Include wireframes.
 - Have semantically clean HTML.
 - Be deployed online and accessible to the public.
@@ -64,13 +64,13 @@ Following my research I decided to use [CoinGecko's API](https://www.coingecko.c
 
 ![CoinGecko endpoints](./screenshots/crypto_endpoints.png)
 
-I also came across the [Alpha Vantage API](https://www.alphavantage.co/documentation/) during the research phase of the project. This API was not cryptocurrency focused but provided a lot of useful financial data. Despite requiring an API key this was another great API that I decided to bookmark for any potential stretch goals.
+I also came across the [Alpha Vantage API](https://www.alphavantage.co/documentation/) during the research phase of the project. This API was not cryptocurrency focused but provided a lot of useful financial data. Despite requiring an API key, this was another great API that I decided to bookmark for any potential stretch goals.
 
 ### Day 1:
 
 The short time-frame meant that strict planning was necessary to get an MVP built in time for my Demo.
 
-Planning (in order)
+Planning (in order):
 
 - Research API's (see above).
 - Define and plan MVP.
@@ -98,11 +98,11 @@ Detials on how this was achieved is given in [Build](#Build).
 
 The majority of effort spent on this project was in the implemention of my stretch goals. In no particular order, these were to:
 
-- Incorporate pagination, allowing client-side to select the number of results returned
-- Add buttons to toggle the currency that numerical data was displayed in
-- Create an additional page, for currency exchange (crypto and fiat)
-- Create an individual coin page providing details on each currency - required me to fetch deeply nested data
-- Create a chart displaying time series data of historical prices (in individual coin page)
+- Incorporate pagination, allowing client-side to select the number of results returned.
+- Add buttons to toggle the currency that numerical data was displayed in.
+- Create an additional page, for currency exchange (crypto and fiat).
+- Create an individual coin page providing details on each currency - required me to fetch deeply nested data.
+- Create a chart displaying time series data of historical prices (in individual coin page).
 
 ### Build:
 

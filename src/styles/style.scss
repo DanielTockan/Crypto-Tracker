@@ -7,6 +7,9 @@
 html, body {
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: rgb(112, 111, 111);  
 }
 
 body .crypt {
@@ -49,7 +52,7 @@ section {
 }
 
 .navbutton:hover {
-  color: green;
+  color: rgb(0, 68, 0);
 }
 
 header {
@@ -85,8 +88,8 @@ display: flex;
 .header-button button {
   margin-right: 2px;
   height: 25px;
-  color: green;
-  border: 1px solid green;
+  color: rgb(0, 68, 0);
+  border: 1px solid rgb(0, 68, 0);
   background: none;
   border-radius: 7%;
   cursor: pointer;
@@ -126,7 +129,7 @@ display: flex;
   align-items: center;
   height: 80px;
   width: 900px;
-  border-bottom: 2px dotted green;
+  border-bottom: 2px dotted rgb(0, 68, 0);
 }
 
 .coin {
@@ -171,11 +174,11 @@ display: flex;
 }
 
 .red {
-  color: red;
+  color: rgb(117, 0, 0);
 }
 
 .green {
-  color: green;
+  color: rgb(0, 68, 0);
 }
 
 // .forexbody{
@@ -210,7 +213,7 @@ display: flex;
   display: flex;
   flex-direction: column;
   width: 600px;
-  background-color: rgba(0, 103, 0, 0.709);
+  background-color: rgb(0, 68, 0);
   border-radius: 10px;
   padding: 20px;
   margin-top: 80px;
@@ -351,10 +354,5 @@ display: flex;
 .centre {
   text-align: center;
   font-size: 70px;
-  color: green;
-}
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+  color: rgb(0, 68, 0);
 }
