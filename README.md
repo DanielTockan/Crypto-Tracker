@@ -60,7 +60,7 @@ Intent on building an app centred around finance, I conducted a search of API's 
 - Quality of documentation
 - Quality of the endpoints returned
 
-Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returing data for live pricing, trading volume, historical data etc. for thousands of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
+Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returning data for live pricing, trading volume, historical data etc. for thousands of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
 
 <!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
 
@@ -77,7 +77,7 @@ Planning (in order):
 - Research API's (see above)
 - Define and plan MVP
 - Define stretch goals
-- Determine how I would fetch the relevent data to buiild my MVP
+- Determine how I would fetch the relevent data to build an MVP
 - Build out MVP components
 - Style MVP components
 - Debugging and implementation of stretch goals
@@ -88,7 +88,7 @@ Defining an MVP was relatively simple given the wealth of information provided b
 
 ![Insomnia](./screenshots/get_crypto.png)
 
-This information was perfect to make a crypto market tracker, ranking coins in terms of makret cap. All datapoints that I wanted would be displayed in a row, with each coin having its own row. <br>
+This information was perfect to make a crypto market tracker, ranking coins in terms of market cap. All datapoints that I wanted would be displayed in a row, with each coin having its own row. <br>
 
 To illustrate:
 
@@ -149,7 +149,7 @@ export default App
 
 ![Tracker](./screenshots/tracker.png)
 
-The crypto tracker was rendered onto page using map function. The data fioelds that I wanted to display were put in and styled.
+The crypto tracker was rendered onto page using map function. The data fioelds that I wanted to display were input and styled.
 
 ```js
 {crypto.map((crypto, index) => {
@@ -201,22 +201,24 @@ State was used to dynamically update the data rendered on the page.
   const [resultsPerPage, updateResultsPerPage] = useState('100')
   ```
 
-The use of state allowed me to make use of buttons to toggle the number of results shown on the page, and the currency in which prices were displayed in. The state was updated within the useEffect, and triggered a new fetch each time state was updated.
+The use of state allowed me to make add buttons that toggled the number of results shown on the page, and the currency in which prices were displayed in. The state was updated within the useEffect, and triggered a new fetch each time state was updated.
+
+![Buttons](./screenshots/buttons.png)
 
 An event listener was implemented within each button, updating the state everytime the corresponding button was clicked, like so:
 
 ```js
-        <div className="header-button"
-          onClick={(event) => updateBaseCurrency(event.target.value)}>
-          <h5>Choose base currency:</h5>
-          <button value="GBP">GBP</button>
-          <button value="USD">USD</button>
-          <button value="EUR">EUR</button>
-          <button value="JPY">JPY</button>
-          <button value="CNY">CNY</button>
-          <button value="CAD">CAD</button>
-          <button value="AUD">AUD</button>
-        </div>
+<div className="header-button"
+  onClick={(event) => updateBaseCurrency(event.target.value)}>
+  <h5>Choose base currency:</h5>
+  <button value="GBP">GBP</button>
+  <button value="USD">USD</button>
+  <button value="EUR">EUR</button>
+  <button value="JPY">JPY</button>
+  <button value="CNY">CNY</button>
+  <button value="CAD">CAD</button>
+  <button value="AUD">AUD</button>
+</div>
 ```
 
 
@@ -232,15 +234,15 @@ Graph created from plotly lbrary charted using time series data of past 30 day p
 
 More details on each coin, including bio section added
 
-Accesed deeply nester data using destructuring
+Accesed deeply nester data using destructuring -->
 
 #### Currency Converter
 
-Working currency converter added using alpha vantage API
+Working currency converter added using AlphaVantage API
 
 Created use state to update each currency and get the rate
 
-Created logic based function to get correct offer and quote prices -->
+Created logic based function to get correct offer and quote prices
 
 
 ## Triumphs
