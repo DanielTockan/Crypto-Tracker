@@ -105,7 +105,7 @@ const Coin = (props) => {
     <div className="coin-page">
 
       <div className="side-section">
-        <h1>{coin.name}</h1>
+        <h1 className="coin-title">{coin.name}</h1>
         <img className="coin-symbol" src={coin.image.large} alt={coin.name} />
         <h3>Rank: {coin.market_cap_rank}</h3>
         <h3>Price: £ {(coin.market_data.current_price.gbp).toLocaleString()}</h3>
