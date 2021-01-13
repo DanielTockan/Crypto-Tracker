@@ -7,20 +7,13 @@ const Coin = (props) => {
   // Chart Section
 
   const [cryptoCurrency, setCryptoCurrency] = useState('bitcoin')
-  const [baseCurrency, setBasecCurrency] = useState('GBP')
+  const [baseCurrency, setBaseCurrency] = useState('GBP')
   const [dayRange, setDayRange] = useState('100')
 
   const [priceData, setPriceData] = useState([])
-  //  const [priceXValues, setPriceXValues] = useState([])
-  //  const [priceYValues, setPriceYValues] = useState([])
-
   const [mCapData, setMCapData] = useState([])
-  //  const [mCapXValues, setMCapXValues] = useState([])
-  //  const [mCapYValues, setMCapYValues] = useState([])
-
   const [volData, setVolData] = useState([])
-  //  const [volXValues, setVolXValues] = useState([])
-  //  const [volYValues, setVolYValues] = useState([])
+
 
   useEffect(() => {
     axios.get(`https://api.coingecko.com/api/v3/coins/${cryptoCurrency}/market_chart?vs_currency=${baseCurrency}&days=${dayRange}&interval=daily`)
@@ -29,7 +22,7 @@ const Coin = (props) => {
         setPriceData(data.prices)
         setMCapData(data.market_caps)
         setVolData(data.total_volumes)
-        // console.log(data)
+        console.log(data.prices);
       })
   }, [baseCurrency, cryptoCurrency, dayRange])
 
@@ -60,6 +53,33 @@ const Coin = (props) => {
     return vol[1]
   })
 
+  const price = {
+    x: priceX,
+    y: priceY,
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Price',
+    marker: { color: 'green' }
+  }
+
+  const mCap = {
+    x: mCapX,
+    y: mCapY,
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Market Cap',
+    marker: { color: 'blue' }
+  }
+
+  const vol = {
+    x: volX,
+    y: volY,
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Volume',
+    marker: { color: 'red' }
+  }
+
   // End of Chart Section
 
   // Rest of coin page
@@ -75,6 +95,7 @@ const Coin = (props) => {
         const data = res.data
         setCoin(data)
         setLoading(false)
+        console.log(data);
       })
   }, [])
 
@@ -82,52 +103,45 @@ const Coin = (props) => {
 
   if (loading) return <h1>LOADING...</h1>
 
-  return <div>
+  return <div className="coin-page">
 
-    <div
-      className="coin-page">
-      <div className="side-section">
-        <h1>{coin.name}</h1>
-        <img src={coin.image.large} alt="" />
-        <p>{coin.description.en}</p>
-      </div>
-      <div className="main-section">
-        <div className="main-section-head">
-          <div
-            className="dropdown">
-            <select className="cryptoinput2" onClick={(event) => setBasecCurrency(event.target.value)}>
-              <option value="GBP">GBP</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="JPY">JPY</option>
-              <option value="CNY">CNY</option>
-              <option value="CAD">CAD</option>
-              <option value="AUD">CAD</option>
-            </select>
-            <select className="cryptoinput2" onClick={(event) => setDayRange(event.target.value)}>
-              <option value="7">7 day</option>
-              <option value="31">Month</option>
-              <option value="365">Year</option>
-            </select>
+    <div className="side-section">
+      <h1>{coin.name}</h1>
+      <img className="coin-symbol" src={coin.image.large} alt={coin.name} />
+      <h3>Rank: {coin.market_cap_rank}</h3>
+      <h3>Current price: {coin.market_data.current}</h3>
+    </div>
+    <div className="main-section">
+      <div className="main-section-head">
+        <header className="dropdown">
+          <div className="header-button"
+            onClick={(event) => setBaseCurrency(event.target.value)}>
+            <h5>Choose base currency:</h5>
+            <button value="GBP">GBP</button>
+            <button value="USD">USD</button>
+            <button value="EUR">EUR</button>
+            <button value="JPY">JPY</button>
+            <button value="CNY">CNY</button>
+            <button value="CAD">CAD</button>
+            <button value="AUD">AUD</button>
           </div>
-        </div>
-        <div
-          className="table">
-
-          <Plot
-            data={[
-              {
-                x: priceX,
-                y: priceY,
-                type: 'scatter',
-                mode: 'lines+markers',
-                marker: { color: 'green' },
-              },
-            ]}
-            layout={{ width: 720, height: 440, title: `${baseCurrency} vs ${coin.symbol.toUpperCase()} Time Series Plot` }}
-          />
-
-        </div>
+          <div className="header-button"
+            onClick={(event) => setDayRange(event.target.value)}>
+            <h5>Number of days:</h5>
+            <button value="7">7</button>
+            <button value="30">30</button>
+            <button value="365">365</button>
+          </div>
+        </header>
+      </div>
+      <div
+        className="table">
+        <Plot
+          data={[price, mCap, vol]}
+          layout={{ width: 720, height: 420, title: `${baseCurrency} vs ${coin.symbol.toUpperCase()} ${dayRange} day time series`, yaxis: { range: [0, priceY] }, xaxis: { type: 'date' } }} />
+      </div>
+      <div className="coin-description">
+        <p>{coin.description.en}</p>
       </div>
     </div>
   </div>
