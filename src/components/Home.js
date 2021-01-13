@@ -5,12 +5,14 @@ import axios from 'axios'
 const Home = () => {
 
   const [crypto, updateCrypto] = useState([])
+  const [loading, updateLoading] = useState([])
 
   useEffect(() => {
     axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=GBP&order=market_cap_desc&per_page=5&page=1&sparkline=false`)
       .then(resp => {
         const data = resp.data
         updateCrypto(data)
+        updateLoading(false)
       })
   }, [autoSlide])
 
@@ -24,7 +26,7 @@ const Home = () => {
     console.log(x);
   }
 
-  const autoSlide = setInterval(slide, 5000)
+  const autoSlide = setInterval(slide, 9000)
 
   const goLeft = () => {
     x === 0 ? updateX(-100 * (crypto.length - 1)) : updateX(x + 100)
@@ -35,6 +37,8 @@ const Home = () => {
   }
 
   const [x, updateX] = useState(0)
+
+  if (loading) return <h1>LOADING...</h1>
 
   return <div>
     <h1 className="centre" >Today's top 5 coins</h1>
