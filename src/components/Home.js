@@ -12,7 +12,19 @@ const Home = () => {
         const data = resp.data
         updateCrypto(data)
       })
-  }, [])
+  }, [autoSlide])
+
+  const slide = () => {
+
+    if (x > -400) {
+      updateX(x - 100)
+    } else {
+      updateX(0)
+    }
+    console.log(x);
+  }
+
+  const autoSlide = setInterval(slide, 5000)
 
   const goLeft = () => {
     x === 0 ? updateX(-100 * (crypto.length - 1)) : updateX(x + 100)
@@ -28,7 +40,7 @@ const Home = () => {
     <h1 className="centre" >Today's top 5 coins</h1>
 
     <div className="slider">
-      {crypto.map((crypto, index) => {
+      {crypto && crypto.map((crypto, index) => {
         return <div
           style={{ transform: `translateX(${x}%)` }}
           key={index}
