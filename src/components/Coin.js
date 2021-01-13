@@ -110,8 +110,8 @@ const Coin = (props) => {
         <h3>Rank: {coin.market_cap_rank}</h3>
         <h3>Price: £ {(coin.market_data.current_price.gbp).toLocaleString()}</h3>
         <h3>Market cap: £ {(coin.market_data.market_cap.gbp).toLocaleString()}</h3>
-        <h3>24 h/high: <span className="green">£ {(coin.market_data.high_24h.gbp).toLocaleString()}</span></h3>
-        <h3>24 h/low: <span className="red">£ {(coin.market_data.low_24h.gbp).toLocaleString()}</span></h3>
+        <h3>24 h/high: £<span className="green"> {(coin.market_data.high_24h.gbp).toLocaleString()}</span></h3>
+        <h3>24 h/low: £<span className="red"> {(coin.market_data.low_24h.gbp).toLocaleString()}</span></h3>
         <h3><span>7-day change: </span><span>{coin.price_change_percentage_24h < 0 ? (
           <span className="red">{(coin.market_data.price_change_percentage_7d_in_currency.gbp).toLocaleString()} %</span>
         ) :
