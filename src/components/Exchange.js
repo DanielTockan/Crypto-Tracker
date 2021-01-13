@@ -49,18 +49,18 @@ const Exchange = () => {
         updateExchangeRate(resp.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       })
   }
-  return <div className="crypto-background">
-    <body className="crypt">
-      <div className="cryptobody">
+  return <div className="exchange-background">
+    <body className="crypt-2">
+      <div className="exchangebody">
         <h1>Currency converter</h1>
         <p>I would like to buy</p>
-        <input className="cryptoinput"
+        <input className="exchangeinput"
           placeholder='Enter amount here:'
           onChange={(event) => updateAmount(event.target.value)}
         >
         </input>
         <select
-          className="cryptoinput"
+          className="exchangeinput"
           onChange={(event) => updateBaseCurrency(event.target.value)}
         >
           <option className="option">Base currency...</option>
@@ -70,7 +70,7 @@ const Exchange = () => {
         </select>
         <p>With...</p>
         <select
-          className="cryptoinput"
+          className="exchangeinput"
           onChange={(event) =>
             fetch(event.target.value)
           }

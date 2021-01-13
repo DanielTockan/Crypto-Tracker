@@ -9,6 +9,7 @@ const CryptoTracker = () => {
   const [crypto, updateCrypto] = useState([])
   const [baseCurrency, updateBaseCurrency] = useState('GBP')
   const [resultsPerPage, updateResultsPerPage] = useState('100')
+  const [loading, setLoading] = useState(true)
 
 
   useEffect(() => {
@@ -16,9 +17,11 @@ const CryptoTracker = () => {
       .then(resp => {
         const data = resp.data
         updateCrypto(data)
-        //console.log(data[0])
+        setLoading(false)
       })
   }, [baseCurrency, resultsPerPage])
+
+  if (loading) return <h1>LOADING...</h1>
 
   console.log(baseCurrency)
   console.log(resultsPerPage)

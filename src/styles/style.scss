@@ -8,17 +8,30 @@ html, body {
   margin: 0;
   padding: 0;
   max-width: 100%;
+  height: 100%;
   overflow-x: hidden;
-  background-color: rgb(112, 111, 111);  
+  background-image: linear-gradient(white, rgb(39, 39, 39));
 }
 
-body .crypt {
+.crypt {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.crypt-2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-items: center;
   align-content: center;
   align-items: center;
+  height: 100vh;
+  overflow: scroll;
 }
 
 section {
@@ -60,6 +73,7 @@ header {
   justify-self: center;
   justify-content: space-between;
   width: 900px;
+  margin-top: 5px;
 }
 
 .container {
@@ -173,48 +187,24 @@ header {
   color: rgb(0, 68, 0);
 }
 
-// .forexbody{
-//   display: flex;
-//   flex-direction: column;
-//   width: 600px;
-//   background-color: rgba(0, 103, 0, 0.709);
-//   border-radius: 10px;
-//   padding: 20px;
-//   margin-top: 80px;
-//   align-items: center;
-//   height: 400px;
-//   color: rgb(164, 164, 164);
-//   background-color: black;
-//   // background-image: url('https://i.imgur.com/orEglRE.jpg');
-// }
-
-// .forexinput{
-//   border-radius: 10px;
-//   width: 80%;
-//   margin-top: 15px;
-//   margin-bottom: 5px;
-//   padding: 20px;
-//   text-align: center;
-//   color: black;
-//   text-align: center;
-//   font-size: 15px;
-// }
+.l-green {
+  color: rgb(0, 159, 0);
+}
 
 
-.cryptobody{
+.exchangebody{
   display: flex;
   flex-direction: column;
   width: 600px;
   background-color: rgb(0, 68, 0);
   border-radius: 10px;
   padding: 20px;
-  margin-top: 80px;
   align-items: center;
   height: 460px;
   color: rgb(164, 164, 164);
 }
 
-.cryptoinput{
+.exchangeinput{
   border-radius: 10px;
   width: 80%;
   margin-top: 15px;
@@ -226,12 +216,10 @@ header {
   font-size: 15px;
 }
 
-.crypto-background {
-  // background-image: url('https://i.imgur.com/orEglRE.jpg');
+.exchange-background {
   height: 100vh;
-  background-size: cover;
-  background-color: rgb(112, 111, 111);
 }
+
 .remove-hyperlink {
   color: black;
   text-decoration: none;
@@ -243,38 +231,34 @@ header {
   display: flex;
 }
 
+.coin-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .coin-page {
   display: flex;
   flex-direction: row;
   background-color: white;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  padding-top: 10px;
 }
 
-.cryptoinput2 {
-  border-radius: 10px;
-  width: 150px;
-  height: 30px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding: 2px;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-}
 
 .side-section {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 20px;
-  flex: 1;
+  margin-right: 120px;
+  margin-bottom: 30px;
 }
 
 .main-section {
   display: flex;
   flex-direction: column;
   flex: 3;
+  max-width: 750px;
 }
 
 .main-section-head {
@@ -350,12 +334,12 @@ header {
   color: rgb(0, 68, 0);
 }
 
-.cryptobody p {
+.exchangebody p {
   margin-bottom: 2px;
   margin-top: 2px;
 }
 
-.cryptobody h2 {
+.exchangebody h2 {
   margin-bottom: 2px;
   margin-top: 2px;
 }
@@ -363,4 +347,15 @@ header {
 .coin-symbol {
   width: 300px;
   height: 300px;
+}
+
+h3 {
+  margin-top: 5px;
+  text-align: right;
+}
+
+.coin-description {
+  max-width: 700px;
+  height: 200px;
+  overflow: scroll;
 }
