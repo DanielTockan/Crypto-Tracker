@@ -104,14 +104,14 @@ The majority of effort spent on this project was on the implemention of my stret
 - Add buttons to toggle the currency that numerical data was displayed in
 - Create an additional page, for currency exchange (crypto and fiat)
 - Create an individual coin page providing details on each currency - required me to fetch deeply nested data
-- Create a chart displaying time series data of historical prices (in individual coin page)
-- Redesign the home page to displaye the top 5 coins in an automated carousel
+- Create a chart displaying time series of historical data (in individual coin page)
+- Redesign the home page to display the top 5 coins via an automated carousel
 
 ### Build:
 
 Each section/page of the app was stored within its own component: 
 
-- Home.js (MVP)
+- Home.js (MVP + Stretch)
 - Navbar.js (MVP)
 - CryptoTracker.js (MVP)
 - Exchange.js (Stretch)
@@ -149,7 +149,7 @@ export default App
 
 ![Tracker](./screenshots/tracker.png)
 
-The crypto tracker was rendered onto page using map function. The data fields that I wanted to display were input and styled.
+The crypto tracker was rendered onto page using a map function. The data fields that I wanted to display were input and styled.
 
 I made use of a ternary operator to apply the class "green" when there was a positive price change over a 24h period, and the class "red" for a negative price change over the same period.
 
@@ -225,15 +225,15 @@ The use of state allowed me to add buttons that toggled the number of results sh
 
 As can be seen within the mapping fucntion above, a link was added to each row directing the user to a page for that individual coin.
 
-#### Home page
+#### Home page - automated carousel
 
-Initially (as part of the MVP) the homepage was a condensed version of the coin tracker page (see below), displaying the top 5 coins. However, as this was achieved early on in the project, I began to implement my stretch goal.
+Initially (as part of the MVP) the homepage was a condensed version of the coin tracker page (see above), displaying the top 5 coins. However, as this was achieved early on in the project, I began to implement my stretch goal.
 
-This stuck with the theme of listing the 5 top coins, however, displaying them via an automated carousel.
+This kept with the theme of listing the 5 top coins, however, displaying them via an automated carousel.
 
 ![Carousel](./screenshots/carousel.png)
 
-A mapping function was used to render the coins name and symbol onto the page like so, as well with buttons navigating to the next coin in the array.
+A map function was used to render the coins name and symbol, along with buttons navigating to the next coin in the array.
 
 ```js
       {crypto && crypto.map((crypto, index) => {
@@ -267,6 +267,37 @@ The "onClick" event listener was applied to both buttons, triggering the "goLeft
   const goRight = () => {
     x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
   }
+```
+To automate the carousel I created the function "slide" using conditional logic dictating how the carousel would loop throught the array:
+
+```js
+  const slide = () => {
+
+    if (x > -400) {
+      updateX(x - 100)
+    } else {
+      updateX(0)
+    }
+  }
+```
+
+Next, I put "slide: within a setinterval that triggered it at my chosen frequency:
+
+```js
+const autoSlide = setInterval(slide, 9000)
+```
+
+"autoSlide" was then passed within the parentheses of the useEffect, automating the carousel.
+
+```js
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=GBP&order=market_cap_desc&per_page=5&page=1&sparkline=false`)
+      .then(resp => {
+        const data = resp.data
+        updateCrypto(data)
+        updateLoading(false)
+      })
+  }, [autoSlide])
 ```
 
 #### Indvidual Coin Page
