@@ -6,7 +6,7 @@
 
 This hackathon themed project was my second of the GA bootcamp. I was given 48 hours to build a one page, frontend React application that consumed a public Rest API.
 
-An objective of mine when deciding the concept was to build the type of app that I could see myself working on in industry. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market tracker. It's not as complicated as it sounds, I promise! <br>
+An objective of mine when crafting the concept was to build the type of app that I could see myself working on in industry. I also wanted to tailor the app to my personal interests, and eventually decided to build a cryptocurrency market tracker. It's not as complicated as it sounds, I promise! <br>
 
 ### Take a look [here.](https://danieltockan.github.io/Crypto-Tracker/)
 
@@ -227,7 +227,7 @@ As can be seen within the mapping fucntion above, a link was added to each row d
 
 #### Home page - automated carousel
 
-Initially (as part of the MVP) the homepage was a condensed version of the coin tracker page (see above), displaying the top 5 coins. However, as this was achieved early on in the project, I began to implement my stretch goal.
+Initially (as part of the MVP) the homepage was a condensed version of the coin tracker page (see above), displaying the top 5 coins. However, as this was achieved early on in the project, I began to implement this stretch goal.
 
 This kept with the theme of listing the 5 top coins, however, displaying them via an automated carousel.
 
@@ -281,7 +281,7 @@ To automate the carousel, I created the function "slide" using conditional logic
   }
 ```
 
-Next, I put "slide: within a setinterval that triggered it at my chosen frequency:
+Next, I put "slide" within a setinterval that triggered it at my chosen frequency:
 
 ```js
 const autoSlide = setInterval(slide, 9000)
