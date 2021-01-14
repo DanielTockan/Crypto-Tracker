@@ -268,7 +268,7 @@ The "onClick" event listener was applied to both buttons, triggering the "goLeft
     x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
   }
 ```
-To automate the carousel I created the function "slide" using conditional logic dictating how the carousel would loop throught the array:
+To automate the carousel, I created the function "slide" using conditional logic dictating how the carousel would loop throught the array:
 
 ```js
   const slide = () => {
@@ -302,7 +302,7 @@ const autoSlide = setInterval(slide, 9000)
 
 #### Indvidual Coin Page
 
-The individual coin page acted as a form of individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required a different endpoint to the tracker page:
+The individual coin page acted as an individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required a different endpoint (coins/{id}/markets-charts") to the tracker page :
 
 ```js
   useEffect(() => {
@@ -328,20 +328,7 @@ I added a time series chart to the page (using [Plotly](https://plotly.com/javas
 
 Having all three series on one chart required customisation. As with the tracker, buttons were added allowing the user to toggle the currency and time range displayed.
 
-The "coins/{id}/markets-charts" endpoint was used to retrieve this data:
-
-```js
-  useEffect(() => {
-    axios.get(`https://api.coingecko.com/api/v3/coins/${cryptoCurrency}/market_chart?vs_currency=${baseCurrency}&days=${dayRange}&interval=daily`)
-      .then(resp => {
-        const data = resp.data
-        setPriceData(data.prices)
-        setMCapData(data.market_caps)
-        setVolData(data.total_volumes)
-      })
-  }, [baseCurrency, cryptoCurrency, dayRange])
-```
-All three sets required manipulation before they were in a format that the library could use.
+All three data sets required manipulation before they were in a format that the library could use.
 
 ![Original data format](./screenshots/price_data_original.png)
 
