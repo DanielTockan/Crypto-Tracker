@@ -10,7 +10,7 @@ An objective of mine when deciding the concept was to build the type of app that
 
 ### Take a look [here.](https://danieltockan.github.io/Crypto-Tracker/)
 
-This solo-project provided me with an opportunity to improve on the React skills I had developed the week prior, and work with my first external library (Plotly) to plot time-series data.
+This solo-project provided me with an opportunity to improve on the React skills I had developed the week prior, and work with my first external library ([Plotly](https://plotly.com/javascript/)) to plot time-series data.
 
 
 
@@ -30,12 +30,12 @@ This solo-project provided me with an opportunity to improve on the React skills
 
 ## The Brief
 
-- Consume a public API.
-- Have several components.
-- The app should include a router - with several pages.
-- Include wireframes.
-- Have semantically clean HTML.
-- Be deployed online and accessible to the public.
+- Consume a public API
+- Have several components
+- The app should include a router - with several pages
+- Include wireframes
+- Have semantically clean HTML
+- Be deployed online and accessible to the public
 
 ## Technologies Used:
 
@@ -56,11 +56,11 @@ This solo-project provided me with an opportunity to improve on the React skills
 
 Intent on building an app centred around finance, I conducted a search of API's I could potentially use. The following criteria were considered in my selection process:
 - Is it free to use?
-- Do I require an API key/is there a call limit?
+- Do I require an API key/ is there a call limit?
 - Quality of documentation
 - Quality of the endpoints returned
 
-Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returning data for live pricing, trading volume, historical data etc. for thousands of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
+Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returning data for live pricing, trading volume, historical data etc. for hundreds of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
 
 <!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
 
@@ -98,13 +98,14 @@ Detials on how this was achieved is given in [Build](#Build).
 
 **Stretch goals**
 
-The majority of effort spent on this project was in the implemention of my stretch goals. In no particular order, these were to:
+The majority of effort spent on this project was on the implemention of my stretch goals. In no particular order, these were to:
 
 - Incorporate pagination, allowing client-side to select the number of results returned
 - Add buttons to toggle the currency that numerical data was displayed in
 - Create an additional page, for currency exchange (crypto and fiat)
 - Create an individual coin page providing details on each currency - required me to fetch deeply nested data
 - Create a chart displaying time series data of historical prices (in individual coin page)
+- Redesign the home page to displaye the top 5 coins in an automated carousel
 
 ### Build:
 
@@ -113,7 +114,7 @@ Each section/page of the app was stored within its own component:
 - Home.js (MVP)
 - Navbar.js (MVP)
 - CryptoTracker.js (MVP)
-- CurrencyConverter.js (Stretch)
+- Exchange.js (Stretch)
 - Coin.js (Stretch)
 
 And then imported to the App.js file, like so:
@@ -122,7 +123,7 @@ And then imported to the App.js file, like so:
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import CryptoTracker from './components/CryptoTracker'
-import CurrencyConverter from './components/CurrencyConverter'
+import Exchange from './components/Exchange'
 import Coin from './components/Coin'
 ```
 
@@ -133,10 +134,10 @@ const App = () => {
   return <BrowserRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/Tracker" component={CryptoIndex} />
-      <Route exact path="/Tracker/:coinId" component={Coin} />
-      <Route exact path="/Exchange" component={CurrencyConverter} />
+      <Route exact path="/crypto-tracker/exchange" component={Exchange} />
+      <Route exact path="/crypto-tracker/all" component={CryptoTracker} />
+      <Route exact path="/crypto-tracker/:coinId" component={Coin} />
+      <Route exact path="/crypto-tracker" component={Home} />
     </Switch>
   </BrowserRouter>
 }
@@ -149,7 +150,9 @@ export default App
 
 ![Tracker](./screenshots/tracker.png)
 
-The crypto tracker was rendered onto page using map function. The data fioelds that I wanted to display were input and styled.
+The crypto tracker was rendered onto page using map function. The data fields that I wanted to display were input and styled.
+
+I made use of a ternary operator to apply the class "green" when there was a positive price change over a 24h period, and the class "red" for a negative price change over the same period.
 
 ```js
 {crypto.map((crypto, index) => {
@@ -179,9 +182,9 @@ The crypto tracker was rendered onto page using map function. The data fioelds t
         })}
 ```
 
-Each coin was an object within an array retunred from the API, and as a result had its own row.
+Each coin was an object within an array retunred from the API, and as a result had its own row with identical styling.
 
-Use Effects (axios) were utilised to fetch the data from the API.
+A use Effects hook (axios) was utilised to fetch the data from the API.
 
 ```js
   useEffect(() => {
@@ -201,11 +204,11 @@ State was used to dynamically update the data rendered on the page.
   const [resultsPerPage, updateResultsPerPage] = useState('100')
   ```
 
-The use of state allowed me to make add buttons that toggled the number of results shown on the page, and the currency in which prices were displayed in. The state was updated within the useEffect, and triggered a new fetch each time state was updated.
+The use of state allowed me to add buttons that toggled the number of results shown on the page, and the currency in which prices were displayed in. The state was updated using an event listener embedded within the buttons. Each time the state updated, a new fetch was triggered within the useEffect due to the arguments passed in the parentheses at the end of the hook.
 
 ![Buttons](./screenshots/buttons.png)
 
-An event listener was implemented within each button, updating the state everytime the corresponding button was clicked, like so:
+"onClick" was used to execute this like so:
 
 ```js
 <div className="header-button"
@@ -221,12 +224,7 @@ An event listener was implemented within each button, updating the state everyti
 </div>
 ```
 
-
-<!-- Links added to each row leading to individual coin page
-
-Used turnary to show +ve price change as green and -ve as red
-
-
+As can be seen within the mapping fucntion above, a link was added to each row directing the user to a page for that individual coin.
 
 #### Indvidual Coin Page
 
@@ -234,7 +232,7 @@ Graph created from plotly lbrary charted using time series data of past 30 day p
 
 More details on each coin, including bio section added
 
-Accesed deeply nester data using destructuring -->
+Accesed deeply nester data using destructuring
 
 #### Currency Converter
 
