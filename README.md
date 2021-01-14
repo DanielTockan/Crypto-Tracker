@@ -145,7 +145,7 @@ const App = () => {
 export default App
 ```
 
-#### Coin Tracker
+#### Crypto Tracker
 
 ![Tracker](./screenshots/tracker.png)
 
@@ -370,14 +370,30 @@ I finally passed the objects as arguemnts to the plot within the JSX:
   }} />
 ```
 
-#### Currency Converter
+#### Exchange
 
-Working currency converter added using AlphaVantage API
+An additional feature I included within the app was a currency convrter, allowing the user to exchange a select group of cryptocurrencies or foregin currency. 
 
-Created use state to update each currency and get the rate
+![Exchange](./screenshots/exchange.png)
 
-Created logic based function to get correct offer and quote prices
+The exchnage rate data was obtained using the [Alpha Vantage API](https://www.alphavantage.co/documentation/).
 
+```js
+  const fetch = (currency2) => {
+    updateExchangeRate("Loading ...")
+    axios.get(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${baseCurrency}&to_currency=${currency2}&apikey=PKAPG80ELUH9O8CR`)
+      .then(resp => {
+        console.log(resp.data)
+        updateExchangeRate(resp.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
+      })
+  }
+```
+
+Event listeners were used to update the input and dropdown selection fields withing the converter. I then carried out the below mathematical operation using the exchange rate returned from the API and the amount I input to give me the price:
+
+```js
+<div><h2>The price is: {exchangeRate === 'Loading ...' ? 'Loading ...' : (exchangeRate * amount).toFixed(2)}</h2></div>
+```
 
 ## Triumphs
 
