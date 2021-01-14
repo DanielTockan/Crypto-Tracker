@@ -145,7 +145,10 @@ const Coin = (props) => {
           className="table">
           <Plot
             data={[price, mCap, vol]}
-            layout={{ width: 720, height: 420, title: `${baseCurrency} vs ${coin.symbol.toUpperCase()} ${dayRange} day time series <br> (Press key to toggle view) `, yaxis: { range: [0, priceY] }, xaxis: { type: 'date' } }} />
+            layout={{
+              width: 720, height: 420, title: `${baseCurrency} vs ${coin.symbol.toUpperCase()} ${dayRange} day time series <br> (Press key to toggle view) `,
+              yaxis: { range: [0, priceY] }, xaxis: { type: 'date' }
+            }} />
         </div>
         <div className="coin-description">
           <p>{coin.description.en}</p>

@@ -138,6 +138,14 @@ header {
   border-bottom: 2px dotted rgb(0, 68, 0);
 }
 
+.coin-details {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .coin {
   display: flex;
   align-items: center;
@@ -154,13 +162,6 @@ header {
   height: 30px;
   width: 30px;
   margin-right: 10px;
-}
-
-.coin-details {
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .coin-price {

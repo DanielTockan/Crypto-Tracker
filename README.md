@@ -228,11 +228,86 @@ As can be seen within the mapping fucntion above, a link was added to each row d
 
 #### Indvidual Coin Page
 
-Graph created from plotly lbrary charted using time series data of past 30 day prices
+The individual coin page acted as a form of individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required a different endpoint to the tracker page:
 
-More details on each coin, including bio section added
+```js
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`)
+      .then(res => {
+        const data = res.data
+        setCoin(data)
+        setLoading(false)
+        console.log(data);
+      })
+  }, [])
+```
 
-Accesed deeply nester data using destructuring
+The "coinId" string literal within the url was obtained from the link of the coin being clicked on, and directed the router to the corresponding endpoint.
+
+![Coin page](./screenshots/coin_page.png)
+
+I added a time series chart to the page (using [Plotly](https://plotly.com/javascript/)), displaying historical data relating to:
+
+- Price
+- Market cap
+- 24h trading volume
+
+Having all three series on one chart required customisation. As with the tracker, buttons were added allowing the user to toggle the currency and time range displayed.
+
+The "coins/{id}/markets-charts" endpoint was used to retrieve this data:
+
+```js
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/${cryptoCurrency}/market_chart?vs_currency=${baseCurrency}&days=${dayRange}&interval=daily`)
+      .then(resp => {
+        const data = resp.data
+        setPriceData(data.prices)
+        setMCapData(data.market_caps)
+        setVolData(data.total_volumes)
+      })
+  }, [baseCurrency, cryptoCurrency, dayRange])
+```
+All three sets required manipulation before they were in a format that the library could use.
+
+![Original data format](./screenshots/price_data_original.png)
+
+I created three identical functions to extract the X and Y co-ordinates, allowing me to plot the charts. 
+
+To illustrate using price:
+
+```js
+  // X & Y co-ordinates for price data
+  const priceX = priceData.map(price => {
+    return price[0]
+  })
+  const priceY = priceData.map(price => {
+    return price[1]
+  })
+```
+
+I then created an object with the relevent fields as per the libraries documentation:
+
+```js
+  const price = {
+    x: priceX,
+    y: priceY,
+    type: 'scatter',
+    mode: 'lines',
+    name: 'Price',
+    marker: { color: 'green' }
+  }
+```
+
+I finally passed the objects as arguemnts to the plot within the JSX:
+
+```js
+<Plot
+  data={[price, mCap, vol]}
+  layout={{
+    width: 720, height: 420, title: `${baseCurrency} vs ${coin.symbol.toUpperCase()} ${dayRange} day time series <br> (Press key to toggle view) `,
+    yaxis: { range: [0, priceY] }, xaxis: { type: 'date' }
+  }} />
+```
 
 #### Currency Converter
 
