@@ -302,7 +302,9 @@ const autoSlide = setInterval(slide, 9000)
 
 #### Indvidual Coin Page
 
-The individual coin page acted as an individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required a different endpoint (coins/{id}/markets-charts") to the tracker page :
+The individual coin page acted as an individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required two different endpoints.
+
+The below endpoint gathered the majority of the data found on the page:
 
 ```js
   useEffect(() => {
@@ -311,7 +313,6 @@ The individual coin page acted as an individual wiki page for each currency, pro
         const data = res.data
         setCoin(data)
         setLoading(false)
-        console.log(data);
       })
   }, [])
 ```
@@ -327,6 +328,21 @@ I added a time series chart to the page (using [Plotly](https://plotly.com/javas
 - 24h trading volume
 
 Having all three series on one chart required customisation. As with the tracker, buttons were added allowing the user to toggle the currency and time range displayed.
+
+I fetched this data using the "coins/{id}/markets-charts" endpoint:
+
+```js
+
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/${cryptoCurrency}/market_chart?vs_currency=${baseCurrency}&days=${dayRange}&interval=daily`)
+      .then(resp => {
+        const data = resp.data
+        setPriceData(data.prices)
+        setMCapData(data.market_caps)
+        setVolData(data.total_volumes)
+      })
+  }, [baseCurrency, cryptoCurrency, dayRange])
+```
 
 All three data sets required manipulation before they were in a format that the library could use.
 
@@ -383,7 +399,6 @@ The exchnage rate data was obtained using the [Alpha Vantage API](https://www.al
     updateExchangeRate("Loading ...")
     axios.get(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${baseCurrency}&to_currency=${currency2}&apikey=PKAPG80ELUH9O8CR`)
       .then(resp => {
-        console.log(resp.data)
         updateExchangeRate(resp.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       })
   }
