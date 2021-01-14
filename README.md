@@ -412,14 +412,16 @@ Event listeners were used to update the input and dropdown selection fields with
 
 ## Triumphs
 
-- Successfully created a time seriess plot using external plotly library.
-- The price data updated dynamically wuth the press of a button, similarly to how it does on poular websites.
+- I was able to manually make my own carousl component that automatically loops
+- I successfully created a time seriess plot using external plotly library with adavance customisation implemented to handle multiple plots
+- I gained confidence and invaluable experience in handling data from an API as well as increased know-how in selecting and judging a good API to use
+
 
 
 ## Obstacles Faced and Lessons
 
-- I experienced major bugs when trying to access deeply nested data. Having conducted extensive research, I was able to solve this problem on my won. This improved my debugging skills as well as my ability to use more complex API's.
+- I experienced error messages when trying to access deeply nested data. Having condcuted some researched, I was able to come to a solution by adding a loading state - this can now apply across future projects. This improved my problem solving as well as my ability to use more complex API's
 
 ## Future Features
 
-- I am currently working on a single coin page, that provides extensive details on each indivudal coin. It will be accessed by clicking on the coin within the coin tracker.
+- The app was desinged solely with use on a laptop/ desktop in mind. I intend on making it fully responsive on smaller, mobile devices
