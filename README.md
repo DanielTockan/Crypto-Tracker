@@ -145,7 +145,6 @@ const App = () => {
 export default App
 ```
 
-
 #### Coin Tracker
 
 ![Tracker](./screenshots/tracker.png)
@@ -225,6 +224,50 @@ The use of state allowed me to add buttons that toggled the number of results sh
 ```
 
 As can be seen within the mapping fucntion above, a link was added to each row directing the user to a page for that individual coin.
+
+#### Home page
+
+Initially (as part of the MVP) the homepage was a condensed version of the coin tracker page (see below), displaying the top 5 coins. However, as this was achieved early on in the project, I began to implement my stretch goal.
+
+This stuck with the theme of listing the 5 top coins, however, displaying them via an automated carousel.
+
+![Carousel](./screenshots/carousel.png)
+
+A mapping function was used to render the coins name and symbol onto the page like so, as well with buttons navigating to the next coin in the array.
+
+```js
+      {crypto && crypto.map((crypto, index) => {
+        return <div
+          style={{ transform: `translateX(${x}%)` }}
+          key={index}
+          className="slide">
+          <Link
+            className="remove-hyperlink"
+            to={`/crypto-tracker/${crypto.id}`}>
+            <img className="home-symbol" src={crypto.image} alt={crypto.id} />
+          </Link>
+          <Link
+            className="remove-hyperlink"
+            to={`/crypto-tracker/${crypto.id}`}>
+            <div><h1 className="h-coin" >{crypto.id}</h1></div>
+          </Link>
+        </div>
+      })}
+      <button id="goLeft" onClick={goLeft} >{arrowL}</button>
+      <button id="goRight" onClick={goRight} >{arrowR}</button>
+```
+
+The "onClick" event listener was applied to both buttons, triggering the "goLeft" and "goRight" functions handling the navigation.
+
+```js
+  const goLeft = () => {
+    x === 0 ? updateX(-100 * (crypto.length - 1)) : updateX(x + 100)
+  }
+
+  const goRight = () => {
+    x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
+  }
+```
 
 #### Indvidual Coin Page
 

@@ -6,6 +6,7 @@ const Home = () => {
 
   const [crypto, updateCrypto] = useState([])
   const [loading, updateLoading] = useState([])
+  const [x, updateX] = useState(0)
 
   useEffect(() => {
     axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=GBP&order=market_cap_desc&per_page=5&page=1&sparkline=false`)
@@ -35,8 +36,6 @@ const Home = () => {
   const goRight = () => {
     x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
   }
-
-  const [x, updateX] = useState(0)
 
   if (loading) return <h1>LOADING...</h1>
 
