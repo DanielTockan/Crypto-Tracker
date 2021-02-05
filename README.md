@@ -60,9 +60,9 @@ Intent on building an app centred around finance, I conducted a search of API's 
 - Quality of documentation
 - Quality of the endpoints returned
 
-Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returning data for live pricing, trading volume, historical data etc. for hundreds of cryptocurrnecies. I was satisfied that I had enough data to build out an MVP with.
+Following my research I decided to use [CoinGecko's API](https://www.coingecko.com/en/api). This API scored well across all 4 criteria, providing a comprehensive list of endpoints returning data for live pricing, trading volume, historical data etc. for hundreds of cryptocurrencies. I was satisfied that I had enough data to build out an MVP with.
 
-<!-- - Selected markets endpoint that containes array of objects, each object containing a lot of data for different cryptocurrencies -->
+<!-- - Selected markets endpoint that contains an array of objects, each object containing a lot of data for different cryptocurrencies -->
 
 ![CoinGecko endpoints](./screenshots/crypto_endpoints.png)
 
@@ -70,14 +70,14 @@ I also came across the [Alpha Vantage API](https://www.alphavantage.co/documenta
 
 ### Day 1:
 
-The short time-frame meant that strict planning was necessary to get an MVP built in time for my Demo.
+The short time frame meant that strict planning was necessary to get an MVP built in time for my Demo.
 
 Planning (in order):
 
 - Research API's (see above)
 - Define and plan MVP
 - Define stretch goals
-- Determine how I would fetch the relevent data to build an MVP
+- Determine how I would fetch the relevant data to build an MVP
 - Build out MVP components
 - Style MVP components
 - Debugging and implementation of stretch goals
@@ -94,11 +94,11 @@ To illustrate:
 
 ![MVP](./screenshots/crypto_mvp.png)
 
-Detials on how this was achieved is given in [Build](#Build).
+Details on how this was achieved is given in [Build](#Build).
 
 **Stretch goals**
 
-The majority of effort spent on this project was on the implemention of my stretch goals. In no particular order, these were to:
+The majority of effort spent on this project was on the implementation of my stretch goals. In no particular order, these were to:
 
 - Incorporate pagination, allowing client-side to select the number of results returned
 - Add buttons to toggle the currency that numerical data was displayed in
@@ -181,7 +181,7 @@ I made use of a ternary operator to apply the class "green" when there was a pos
         })}
 ```
 
-Each coin was an object within an array retunred from the API, and as a result had its own row with identical styling.
+Each coin was an object within an array returned from the API, and as a result had its own row with identical styling.
 
 A use Effects hook (axios) was utilised to fetch the data from the API.
 
@@ -203,7 +203,7 @@ State was used to dynamically update the data rendered on the page.
   const [resultsPerPage, updateResultsPerPage] = useState('100')
   ```
 
-The use of state allowed me to add buttons that toggled the number of results shown on the page, and the currency in which prices were displayed in. The state was updated using an event listener embedded within the buttons. Each time the state updated, a new fetch was triggered within the useEffect due to the arguments passed in the parentheses at the end of the hook.
+The use of state allowed me to add buttons that toggled the number of results shown on the page, and the currency in which prices were displayed in. The state was updated using an event listener embedded within the buttons. Each time the state updated; a new fetch was triggered within the useEffect due to the arguments passed in the parentheses at the end of the hook.
 
 ![Buttons](./screenshots/buttons.png)
 
@@ -223,7 +223,7 @@ The use of state allowed me to add buttons that toggled the number of results sh
 </div>
 ```
 
-As can be seen within the mapping fucntion above, a link was added to each row directing the user to a page for that individual coin.
+As can be seen within the mapping function above, a link was added to each row directing the user to a page for that individual coin.
 
 #### Home page - automated carousel
 
@@ -300,7 +300,7 @@ const autoSlide = setInterval(slide, 9000)
   }, [autoSlide])
 ```
 
-#### Indvidual Coin Page
+#### Individual Coin Page
 
 The individual coin page acted as an individual wiki page for each currency, providing key stats and information specific to the coin. Creating this page required two different endpoints.
 
@@ -317,7 +317,7 @@ The below endpoint gathered the majority of the data found on the page:
   }, [])
 ```
 
-The "coinId" string literal within the url was obtained from the link of the coin being clicked on, and directed the router to the corresponding endpoint.
+The "coinId" string literal within the URL was obtained from the link of the coin being clicked on and directed the router to the corresponding endpoint.
 
 ![Coin page](./screenshots/coin_page.png)
 
@@ -362,7 +362,7 @@ To illustrate using price:
   })
 ```
 
-I then created an object with the relevent fields as per the libraries documentation:
+I then created an object with the relevant fields as per the library’s documentation:
 
 ```js
   const price = {
@@ -375,7 +375,7 @@ I then created an object with the relevent fields as per the libraries documenta
   }
 ```
 
-I finally passed the objects as arguemnts to the plot within the JSX:
+I finally passed the objects as arguments to the plot within the JSX:
 
 ```js
 <Plot
@@ -388,11 +388,11 @@ I finally passed the objects as arguemnts to the plot within the JSX:
 
 #### Exchange
 
-An additional feature I included within the app was a currency convrter, allowing the user to exchange a select group of cryptocurrencies or foregin currency. 
+An additional feature I included within the app was a currency converter, allowing the user to exchange a select group of cryptocurrencies or foreign currency. 
 
 ![Exchange](./screenshots/exchange.png)
 
-The exchnage rate data was obtained using the [Alpha Vantage API](https://www.alphavantage.co/documentation/).
+The exchange rate data was obtained using the [Alpha Vantage API](https://www.alphavantage.co/documentation/).
 
 ```js
   const fetch = (currency2) => {
@@ -412,16 +412,16 @@ Event listeners were used to update the input and dropdown selection fields with
 
 ## Triumphs
 
-- I was able to manually make my own carousl component that automatically loops
-- I successfully created a time seriess plot using external plotly library with adavance customisation implemented to handle multiple plots
+- I was able to manually make my own carousel component that automatically loops
+- I successfully created a time-series plot using external Plotly library with advance customisation implemented to handle multiple plots
 - I gained confidence and invaluable experience in handling data from an API as well as increased know-how in selecting and judging a good API to use
 
 
 
 ## Obstacles Faced and Lessons
 
-- I experienced error messages when trying to access deeply nested data. Having condcuted some researched, I was able to come to a solution by adding a loading state - this can now apply across future projects. This improved my problem solving as well as my ability to use more complex API's
+- I experienced error messages when trying to access deeply nested data. Having conducted some researched, I was able to come to a solution by adding a loading state - this can now apply across future projects. This improved my problem solving as well as my ability to use more complex API's
 
 ## Future Features
 
-- The app was desinged solely with use on a laptop/ desktop in mind. I intend on making it fully responsive on smaller, mobile devices
+- The app was designed solely with use on a laptop/ desktop in mind. I intend on making it fully responsive on smaller, mobile devices
