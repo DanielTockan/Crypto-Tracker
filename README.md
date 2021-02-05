@@ -268,7 +268,7 @@ The "onClick" event listener was applied to both buttons, triggering the "goLeft
     x === -100 * (crypto.length - 1) ? updateX(0) : updateX(x - 100)
   }
 ```
-To automate the carousel, I created the function "slide" using conditional logic dictating how the carousel would loop throught the array:
+To automate the carousel, I created the function "slide" using conditional logic dictating how the carousel would loop through the array:
 
 ```js
   const slide = () => {
@@ -281,7 +281,7 @@ To automate the carousel, I created the function "slide" using conditional logic
   }
 ```
 
-Next, I put "slide" within a setinterval that triggered it at my chosen frequency:
+Next, I put "slide" within a setInterval that triggered it at my chosen frequency:
 
 ```js
 const autoSlide = setInterval(slide, 9000)
