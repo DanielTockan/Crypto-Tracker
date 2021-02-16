@@ -49,6 +49,7 @@ const Exchange = () => {
         updateExchangeRate(resp.data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
       })
   }
+  
   return <div className="exchange-background">
     <body className="crypt-2">
       <div className="exchangebody">
